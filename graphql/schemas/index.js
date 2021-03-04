@@ -2,7 +2,7 @@ const { buildSchema } = require('graphql');
 
 module.exports = buildSchema(`
     type Page{
-        _id: String!
+        id: String!
         images: [Image]
         page: Int!
         total: Int!
@@ -20,12 +20,9 @@ module.exports = buildSchema(`
         page: String!
     }
     type RootQuery {
-      getPage(pageInput: PageInput): Page
-    }
-    type RootMutation {
+      getPage(pageInput: PageInput): Page!
     }
     schema {
       query: RootQuery
-      mutation: RootMutation
     }
 `);
